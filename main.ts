@@ -8,7 +8,7 @@ if (!documentPath) {
 
 const document: BunFile = Bun.file(documentPath)
 if (!await document.exists()) {
-    throw new Error("Path is not a file")
+    throw new Error("Path is not a valid file")
 }
 
 const content: string = await document.text()
@@ -16,7 +16,7 @@ let messages: Array<string> = content.split('\n').filter(message => message.repl
 messages = messages.map(message => message.replaceAll('\\n', '\n'))
 
 if (!messages.length) {
-    throw new Error("Text file can't be empty")
+    throw new Error("The text file can't be empty")
 }
 
 const errorIndex: number = messages.findIndex(message => message.length > 2000)
