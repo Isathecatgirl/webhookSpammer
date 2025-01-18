@@ -55,7 +55,6 @@ if (avatar) {
 
 // Send messsages
 async function sendMessage(message: string, index: number): Promise<boolean> {
-    console.log(index)
     const response = await fetch(webhookURL, {
         method: "POST",
         headers: {
